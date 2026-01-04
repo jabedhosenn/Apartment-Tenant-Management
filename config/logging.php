@@ -73,6 +73,38 @@ return [
             'replace_placeholders' => true,
         ],
 
+        'users' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/user.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+            'days' => env('LOG_DAILY_DAYS', 14),
+            'replace_placeholders' => true,
+        ],
+
+        'apartments' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/apartment.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+            'days' => env('LOG_DAILY_DAYS', 14),
+            'replace_placeholders' => true,
+        ],
+
+        'tenants' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/booking.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+            'days' => env('LOG_DAILY_DAYS', 14),
+            'replace_placeholders' => true,
+        ],
+
+        'bookings' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/tenant.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+            'days' => env('LOG_DAILY_DAYS', 14),
+            'replace_placeholders' => true,
+        ],
+
         'slack' => [
             'driver' => 'slack',
             'url' => env('LOG_SLACK_WEBHOOK_URL'),

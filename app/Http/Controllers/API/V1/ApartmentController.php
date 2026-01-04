@@ -7,6 +7,7 @@ use App\Http\Requests\Apartment\StoreApartmentRequest;
 use App\Http\Resources\Apartment\ApartmentCollection;
 use Exception;
 use App\Models\Apartment;
+use Illuminate\Support\Facades\Log;
 
 class ApartmentController extends Controller
 {
@@ -38,6 +39,7 @@ class ApartmentController extends Controller
                 'data' => $apartment
             ], 201);
         } catch (Exception $e) {
+            Log::channel('apartments')->error('Apartment creation failed');
             return response()->json([
                 'message' => 'Failed to create apartment',
                 'error' => $e->getMessage()

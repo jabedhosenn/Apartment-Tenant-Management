@@ -8,6 +8,7 @@ use App\Http\Resources\Tenant\TenantCollection;
 use Exception;
 use App\Models\Tenant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class TenantController extends Controller
 {
@@ -40,6 +41,7 @@ class TenantController extends Controller
                 'data' => $apartment
             ], 201);
         } catch (Exception $e) {
+            Log::channel('tenants')->error('Tenant creation failed');
             return response()->json([
                 'message' => 'Failed to create tenant',
                 'error' => $e->getMessage()
